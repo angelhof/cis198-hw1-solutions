@@ -9,8 +9,8 @@
 
 // Remove these once you are done editing the file!
 // This will result in useful warnings if you missed something.
-#![allow(dead_code)]
-#![allow(unused_variables)]
+// #![allow(dead_code)]
+// #![allow(unused_variables)]
 
 /*
     Problem 1: Double
@@ -207,7 +207,7 @@ pub fn fibonacci(n1: i32, n2: i32, out_size: usize) -> Vec<i32> {
     let mut f1 = n1;
     let mut f2 = n2;
     let mut temp;
-    for i in 0..out_size {
+    for _ in 0..out_size {
         vec.push(f1);
         temp = f1;
         f1 = f2;
