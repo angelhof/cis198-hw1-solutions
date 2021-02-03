@@ -77,7 +77,7 @@ fn test_double_v3() {
 */
 pub fn sqrt(n: usize) -> usize {
     let mut res = 1;
-    let end = n/2 + 1;
+    let end = n / 2 + 1;
     for i in (1..end).rev() {
         if i * i <= n {
             res = i;
@@ -157,7 +157,7 @@ pub fn unique(slice: &[i32]) -> Vec<i32> {
             if x != prev {
                 unique_vec.push(prev);
                 prev = x;
-            } 
+            }
         }
         unique_vec.push(prev);
     }
@@ -169,7 +169,6 @@ fn test_unique() {
     let a = [42, 8, 3, 2, 5, 8, 42, 5];
     assert_eq!(unique(&a), [2, 3, 5, 8, 42]);
 }
-
 
 /*
     Problem 5: Filter
@@ -183,7 +182,7 @@ pub fn filter(slice: &[i32], pred: impl Fn(i32) -> bool) -> Vec<i32> {
     for x in slice {
         if pred(*x) {
             res_vec.push(*x);
-        } 
+        }
     }
     res_vec
 }
@@ -246,8 +245,8 @@ pub fn string_concat(s1: String, s2: String) -> String {
 
 #[test]
 fn test_str_concat() {
-    let a1 : &str = "hello, ";
-    let a2 : &str = "world!";
+    let a1: &str = "hello, ";
+    let a2: &str = "world!";
     assert_eq!(str_concat(a1, a2), "hello, world!");
 }
 
