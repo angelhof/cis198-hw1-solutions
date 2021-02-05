@@ -139,7 +139,7 @@ fn pick_longest_in_v1(v: Vec<String>) -> String {
 }
 
 fn pick_longest_in_v2(v: Vec<&str>) -> &str {
-    let mut longest : &str = "";
+    let mut longest: &str = "";
     for s in v {
         let curr_longest = longest;
         longest = pick_longest2(curr_longest, s);
@@ -150,7 +150,11 @@ fn pick_longest_in_v2(v: Vec<&str>) -> &str {
 #[test]
 fn test_pick_longest_in_v1() {
     assert_eq!(
-        pick_longest_in_v1(vec!["cat".to_string(), "dog".to_string(), "cockroach".to_string()]),
+        pick_longest_in_v1(vec![
+            "cat".to_string(),
+            "dog".to_string(),
+            "cockroach".to_string()
+        ]),
         "cockroach".to_string()
     );
 }
@@ -161,9 +165,7 @@ fn test_pick_longest_in_v2() {
         pick_longest_in_v2(vec!["cat", "dog", "cockroach"]),
         "cockroach"
     );
-    assert_eq!(
-        pick_longest_in_v2(vec![]), ""
-    );
+    assert_eq!(pick_longest_in_v2(vec![]), "");
 }
 
 /*
@@ -179,7 +181,7 @@ fn test_pick_longest_in_v2() {
 
 fn pad_with_zeros_v1(v: Vec<usize>, desired_len: usize) -> Vec<usize> {
     assert!(v.len() <= desired_len);
-    let pad_len : usize = desired_len - v.len();
+    let pad_len: usize = desired_len - v.len();
     let pad = vec![0; pad_len];
     let result = [v, pad].concat();
     debug_assert_eq!(result.len(), desired_len);
@@ -188,7 +190,7 @@ fn pad_with_zeros_v1(v: Vec<usize>, desired_len: usize) -> Vec<usize> {
 
 fn pad_with_zeros_v2(slice: &[usize], desired_len: usize) -> Vec<usize> {
     assert!(slice.len() <= desired_len);
-    let pad_len : usize = desired_len - slice.len();
+    let pad_len: usize = desired_len - slice.len();
     let mut pad = Vec::new();
     pad.resize(pad_len, 0);
     let result = [slice, &pad].concat();
@@ -284,7 +286,7 @@ fn vector_to_hashmap(v: &[(i32, String)]) -> HashMap<i32, String> {
 // are negative.
 fn delete_negative_keys(h: &mut HashMap<i32, i32>) {
     // This fails, uncomment to see error.
-    let keys : Vec<i32> = h.keys().copied().filter(|k| k < &0).collect();
+    let keys: Vec<i32> = h.keys().copied().filter(|k| k < &0).collect();
     for k in keys {
         h.remove(&k);
     }
@@ -320,11 +322,9 @@ fn test_delete_negative_keys() {
 
 fn merge_maps(
     merged: &mut HashMap<String, String>,
-    add: HashMap<String,String>
+    add: HashMap<String, String>,
 ) {
     for (k, v) in add {
-        merged.entry(k)
-            .and_modify(|e| e.push_str(&v))
-            .or_insert(v);
+        merged.entry(k).and_modify(|e| e.push_str(&v)).or_insert(v);
     }
 }
